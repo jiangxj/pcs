@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/select-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $(".select1").uedSelect({
+            width : 160
+        });
+        $(".select2").uedSelect({
+            width : 160
+        });
+        $(".select3").uedSelect({
+            width : 160
+        });
+
+        $(".tablelist tbody tr").click(function(){
+            window.location.href = "casedetail.html";
+        });
+    });
+</script>
+
+
+</head>
+
+
+<body>
+
+	<div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">数据表</a></li>
+            <li><a href="#">基本内容</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <ul class="seachform">
+
+            <li><label>经办人</label><input name="" type="text" class="scinput" /></li>
+            <li><label>欠款人</label><input name="" type="text" class="scinput" /></li>
+            <li><label>录入日期</label><input name="" type="text" class="scinput" /> - <input name="" type="text" class="scinput" /></li>
+            <li>
+                <label>委托单位：</label>
+                <div class="vocation">
+                    <select class="select1">
+                        <option>请选择</option>
+                        <option>速分期</option>
+                        <option>掌众金融（闪电贷）</option>
+                        <option>现金速递</option>
+                        <option>优分期</option>
+                        <option>简单借款</option>
+                        <option>信用宝</option>
+                        <option>力帆租赁</option>
+                        <option>现金巴士</option>
+                    </select>
+                </div>
+            </li>
+
+            <li><label>状态&nbsp;&nbsp;&nbsp;</label>
+                <div class="vocation">
+                    <select class="select3">
+                        <option>请选择</option>
+                        <option>查找</option>
+                        <option>中本人</option>
+                        <option>中家人</option>
+                        <option>中联系人</option>
+                        <option>跟进</option>
+                        <option>默认状态</option>
+                        <option>争议</option>
+                        <option>承诺</option>
+                        <option>跳票</option>
+                    </select>
+                </div>
+            </li>
+            <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+    
+    <table class="tablelist">
+    	<thead>
+    	<tr>
+            <th><input name="" type="checkbox" value="" checked="checked"/></th>
+            <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+            <th>姓名</th>
+            <th>委托单位</th>
+            <th>案件编号</th>
+            <th>卡号</th>
+            <th>经办人</th>
+            <th>委托日期</th>
+            <th>剩余（天）</th>
+            <th>欠款金额</th>
+            <th>利息</th>
+            <th>欠款总额</th>
+            <th>累计还款</th>
+            <th>更新还款</th>
+            <th>还款余额</th>
+            <th>身份证号</th>
+            <th>当前状态</th>
+            <th>次数</th>
+            <th>呆滞</th>
+            <th>提醒</th>
+            <th>CD值</th>
+            <th>手数</th>
+            <th>最后催收时间</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+            <tr>
+                <td><input name="" type="checkbox" value="" /></td>
+                <td>1</td>
+                <td>于洪涛</td>
+                <td>力帆租赁</td>
+                <td>LFZL-20171030-006</td>
+                <td>0</td>
+                <td>蒋战胜</td>
+                <td>2017-10-10</td>
+                <td>25</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>0</td>
+                <td>0</td>
+                <td>77965.84</td>
+                <td>410223197906245017</td>
+                <td>查找</td>
+                <td>6</td>
+                <td>3</td>
+                <td>无</td>
+                <td>701</td>
+                <td>手数</td>
+                <td>2017/11/1 15:16:30</td>
+            </tr>
+        </tbody>
+    </table>
+    
+   
+    <div class="pagin">
+    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <ul class="paginList">
+        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
+        <li class="paginItem"><a href="javascript:;">1</a></li>
+        <li class="paginItem current"><a href="javascript:;">2</a></li>
+        <li class="paginItem"><a href="javascript:;">3</a></li>
+        <li class="paginItem"><a href="javascript:;">4</a></li>
+        <li class="paginItem"><a href="javascript:;">5</a></li>
+        <li class="paginItem more"><a href="javascript:;">...</a></li>
+        <li class="paginItem"><a href="javascript:;">10</a></li>
+        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        </ul>
+    </div>
+    
+    
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认对信息的修改 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    </div>
+
+    <script type="text/javascript">
+        $("#usual1 ul").idTabs();
+    </script>
+
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+</body>
+
+</html>

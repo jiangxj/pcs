@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:mysql://139.196.6.63:3306/pcs?serverTimezone=UTC
+    username: root
+    password: mengkefmp
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 139.196.170.116
+    hostName: m.soumoney.net
+    password: fengjiefengjie
+    port: 6379
+    database: 0
+server:
+  port: 9080
+  context-path: /pcs
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
