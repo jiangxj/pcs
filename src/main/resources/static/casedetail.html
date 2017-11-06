@@ -8,15 +8,6 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
-<script type="text/javascript" src="editor/kindeditor.js"></script>
-
-<script type="text/javascript">
-    KE.show({
-        id : 'content7',
-        cssPath : './index.css'
-    });
-  </script>
-  
 <script type="text/javascript">
 $(document).ready(function(e) {
     $(".select1").uedSelect({
@@ -28,6 +19,23 @@ $(document).ready(function(e) {
 	$(".select3").uedSelect({
 		width : 100
 	});
+
+    $(".click").click(function(){
+        $(".tip").fadeIn(200);
+        $(".tip").css("width", "600px")
+    });
+
+    $(".tiptop a").click(function(){
+        $(".tip").fadeOut(200);
+    });
+
+    $(".sure").click(function(){
+        $(".tip").fadeOut(100);
+    });
+
+    $(".cancel").click(function(){
+        $(".tip").fadeOut(100);
+    });
 });
 </script>
 </head>
@@ -42,6 +50,21 @@ $(document).ready(function(e) {
         </ul>
     </div>
     <div class="wrap">
+        <div class="tools">
+            <ul class="toolbar">
+                <li class="click"><span><img src="images/t01.png" /></span>录入还款</li>
+                <li><span><img src="images/t03.png" /></span>协办管理</li>
+                <li><span><img src="images/t03.png" /></span>催收管理</li>
+                <li><span><img src="images/t03.png" /></span>资料下载</li>
+                <li><span><img src="images/t01.png" /></span>联系人</li>
+                <li><span><img src="images/t02.png" /></span>设置提醒</li>
+                <li><span><img src="images/t04.png" /></span>重新分单</li>
+                <li><span><img src="images/t04.png" /></span>录音</li>
+                <li><span><img src="images/t04.png" /></span>评价</li>
+                <li><span><img src="images/t04.png" /></span>附件</li>
+                <li><span><img src="images/t01.png" /></span>笔记</li>
+            </ul>
+        </div>
         <table class="tabledatail">
             <tr>
                 <td>案件编号</td>
@@ -604,10 +627,30 @@ $(document).ready(function(e) {
         </div>
 
         <script type="text/javascript">
-          $("#usual1 ul").idTabs();
+            $("#usual1 ul").idTabs();
+            function setIframeHeight(iframe) {
+                if (iframe) {
+                    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                    }
+                }
+            }
         </script>
     </div>
+    <div class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
 
+        <div class="tipinfo">
+            <iframe onload="setIframeHeight(this)" src="huankuan.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+        </div>
+
+        <div class="tipbtn">
+            <input name="" type="button"  class="sure" value="确定" />&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+
+    </div>
 
 </body>
 
