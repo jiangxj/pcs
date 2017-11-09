@@ -16,7 +16,9 @@ a:hover{color:#00a4ac;text-decoration:none;}
 table{border-collapse:collapse;border-spacing: 0;}
 cite{font-style:normal;}
 h2{font-weight:normal;}
+input,textarea{outline:none}
 
+.clearfix:after {display: block; content: "."; height: 0; visibility: hidden; clear: both; font-size: 0; line-height: 0;}
 /*cloud*/
 
 #mainBody {width:100%;height:100%;position:absolute;z-index:-1;}
@@ -197,13 +199,13 @@ h2{font-weight:normal;}
 .tiptop span{font-size:14px; font-weight:bold; color:#fff;float:left; text-indent:20px;}
 .tiptop a{display:block; background:url(../images/close.png) no-repeat; width:22px; height:22px;float:right;margin-right:7px; margin-top:10px; cursor:pointer;}
 .tiptop a:hover{background:url(../images/close1.png) no-repeat;}
-.tipinfo{padding-top:30px;margin-left:65px;}
+.tipinfo{padding-top:30px;}
 .tipinfo span{width:95px; height:95px;float:left;}
 .tipright{float:left;padding-top:15px; padding-left:10px;}
 .tipright p{font-size:14px; font-weight:bold; line-height:35px;}
 .tipright cite{color:#858686;}
 .tipbtn{margin-top:25px; margin-left:125px;}
-.sure ,.cancel{width:96px; height:35px; line-height:35px; color:#fff; background:url(../images/btnbg1.png) repeat-x; font-size:14px; font-weight:bold;border-radius: 3px; cursor:pointer;}
+.sure ,.cancel{width:96px; height:35px; margin: 0 5px; line-height:35px; color:#fff; background:url(../images/btnbg1.png) repeat-x; font-size:14px; font-weight:bold;border-radius: 3px; cursor:pointer;}
 .cancel{background:url(../images/btnbg2.png) repeat-x;color:#000;font-weight:normal;}
 
 /*tools*/

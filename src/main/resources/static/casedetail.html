@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="js/layer/layer.js"></script>
 <script type="text/javascript">
 $(document).ready(function(e) {
     $(".select1").uedSelect({
@@ -21,20 +22,9 @@ $(document).ready(function(e) {
 	});
 
     $(".click").click(function(){
-        $(".tip").fadeIn(200);
-        $(".tip").css("width", "600px")
-    });
-
-    $(".tiptop a").click(function(){
-        $(".tip").fadeOut(200);
-    });
-
-    $(".sure").click(function(){
-        $(".tip").fadeOut(100);
-    });
-
-    $(".cancel").click(function(){
-        $(".tip").fadeOut(100);
+        layer.open({
+            content: 'huankuan.html'
+        });
     });
 });
 </script>
@@ -625,27 +615,7 @@ $(document).ready(function(e) {
                 </table>
             </div>
         </div>
-
-        <script type="text/javascript">
-            $("#usual1 ul").idTabs();
-            function setIframeHeight(iframe) {
-                if (iframe) {
-                    var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-                    if (iframeWin.document.body) {
-                        iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-                    }
-                }
-            }
-        </script>
     </div>
-    <div class="tip">
-        <div class="tiptop"><span>提示信息</span><a></a></div>
-
-        <div class="tipinfo">
-            <iframe onload="setIframeHeight(this)" src="xieban.html" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
-        </div>
-    </div>
-
 </body>
 
 </html>
