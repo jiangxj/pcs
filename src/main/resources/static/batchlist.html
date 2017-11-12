@@ -1,12 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<link href="plugins/pagination/jquery.pagination.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.1.7.0.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
+<script type="text/javascript" src="plugins/pagination/jquery.pagination.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(e) {
@@ -19,7 +21,6 @@
         $(".select3").uedSelect({
             width : 160
         });
-
     });
 </script>
 
@@ -44,7 +45,7 @@
                 <li><span><img src="images/t04.png" /></span>导出</li>
             </ul>
         </div>
-        <ul class="seachform">
+        <ul class="seachform clearfix">
 
             <li><label>批次号</label><input name="" type="text" class="scinput" /></li>
             <li><label>标题</label><input name="" type="text" class="scinput" /></li>
@@ -165,25 +166,23 @@
             </tr>
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
-    
+
+        <div id="page3" class="m-pagination"></div>
     </div>
 
 </body>
-
+<script type="text/javascript">
+    $("#page3").page({
+        total: 1000,
+        firstBtnText: '首页',
+        lastBtnText: '尾页',
+        prevBtnText: '上一页',
+        nextBtnText: '下一页',
+        showInfo: true,
+        showJump: true,
+        jumpBtnText: '跳转',
+        showPageSizes: true,
+        infoFormat: '{start} ~ {end}条，共{total}条'
+    });
+</script>
 </html>

@@ -19,6 +19,10 @@
         $(".select3").uedSelect({
             width : 160
         });
+
+        $(".tablelist tbody tr").click(function(){
+            window.location.href = "casedetail.html";
+        });
     });
 </script>
 
@@ -37,17 +41,44 @@
         </ul>
     </div>
     <div class="formbody">
-        <div class="tools">
-            <ul class="toolbar">
-                <li class="hk"><span><img src="images/t01.png" /></span>全部分派</li>
-                <li class="hk"><span><img src="images/t01.png" /></span>选中分派</li>
-            </ul>
-        </div>
-        <ul class="seachform clearfix">
+        <ul class="seachform">
+
             <li><label>经办人</label><input name="" type="text" class="scinput" /></li>
-            <li><label>委托单位</label><input name="" type="text" class="scinput" /></li>
-            <li><label>欠款金额</label><input name="" type="text" class="scinput" /> 至 <input name="" type="text" class="scinput" /></li>
-            <li><label>到期时间</label><input name="" type="text" class="scinput" />天以内</li>
+            <li><label>欠款人</label><input name="" type="text" class="scinput" /></li>
+            <li><label>录入日期</label><input name="" type="text" class="scinput" /> - <input name="" type="text" class="scinput" /></li>
+            <li>
+                <label>委托单位：</label>
+                <div class="vocation">
+                    <select class="select1">
+                        <option>请选择</option>
+                        <option>速分期</option>
+                        <option>掌众金融（闪电贷）</option>
+                        <option>现金速递</option>
+                        <option>优分期</option>
+                        <option>简单借款</option>
+                        <option>信用宝</option>
+                        <option>力帆租赁</option>
+                        <option>现金巴士</option>
+                    </select>
+                </div>
+            </li>
+
+            <li><label>状态&nbsp;&nbsp;&nbsp;</label>
+                <div class="vocation">
+                    <select class="select3">
+                        <option>请选择</option>
+                        <option>查找</option>
+                        <option>中本人</option>
+                        <option>中家人</option>
+                        <option>中联系人</option>
+                        <option>跟进</option>
+                        <option>默认状态</option>
+                        <option>争议</option>
+                        <option>承诺</option>
+                        <option>跳票</option>
+                    </select>
+                </div>
+            </li>
             <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查找"/></li>
         </ul>
     </div>
