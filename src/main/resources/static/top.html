@@ -8,10 +8,46 @@
 <script type="text/javascript">
 $(function(){	
 	//顶部导航切换
-	$(".nav li a").click(function(){
-		$(".nav li a.selected").removeClass("selected")
-		$(this).addClass("selected");
-	})	
+    $.ajax({
+        url: '/pcs/auth/modulelist',
+        type: 'post',
+        dataType: 'json',
+        success: function (dataJson) {
+            if(dataJson.statusCode == 0){
+                var mHtml = "";
+                for(var i=0; i<dataJson.data.length; i++){
+                    var m = dataJson.data[i];
+                    mHtml += '<li id="'+m.mid+'"><a target="rightFrame"><img src="'+m.iconurl+'" title="'+m.module_name+'" /><h2>'+m.module_name+'</h2></a></li>';
+                }
+                $(".nav").append(mHtml);
+
+                $(".nav li a").click(function(){
+                    $(".nav li a.selected").removeClass("selected")
+                    $(this).addClass("selected");
+                    if($(this).parent().attr("id") != ''){
+                        $(window.parent.document).find("#mainFrame").attr("src", "main.html?moduleid="+$(this).parent().attr("id"));
+                    }else{
+                        $(window.parent.document).find("#mainFrame").attr("src", "default.html");
+                    }
+
+                })
+            }else if(dataJson.statusCode == 41){
+                window.parent.location.href = "login.html"
+            }
+        }
+    });
+
+    $.ajax({
+        url: '/pcs/auth/realname',
+        type: 'post',
+        dataType: 'json',
+        success: function (dataJson) {
+            if(dataJson.statusCode == 0){
+                $("#realname").text(dataJson.data)
+            }
+        }
+    });
+
 })	
 </script>
 
@@ -25,23 +61,24 @@ $(function(){
     </div>
         
     <ul class="nav">
+
     <li><a href="default.html" target="rightFrame" class="selected"><img src="images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
-    <!--<li><a href="imgtable.html" target="rightFrame"><img src="images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li> -->
-    <!--<li><a href="imglist.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li> -->
+        <!--
+    <li><a href="imgtable.html" target="rightFrame"><img src="images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
+    <li><a href="imglist.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
     <li><a href="tools.html"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
     <li><a href="casefiles.html" target="rightFrame"><img src="images/icon05.png" title="档案管理" /><h2>档案管理</h2></a></li>
     <li><a href="tab.html"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+        -->
     </ul>
             
     <div class="topright">    
     <ul>
-    <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
-    <li><a href="#">关于</a></li>
     <li><a href="login.html" target="_parent">退出</a></li>
     </ul>
      
     <div class="user">
-    <span>admin</span>
+    <span id="realname">admin</span>
     <i>消息</i>
     <b>5</b>
     </div>    

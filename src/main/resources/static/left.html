@@ -4,25 +4,57 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.extend.js"></script>
 
 <script type="text/javascript">
-$(function(){	
+$(function(){
 	//导航切换
-	$(".menuson li").click(function(){
-		$(".menuson li.active").removeClass("active")
-		$(this).addClass("active");
-	});
-	
-	$('.title').click(function(){
-		var $ul = $(this).next('ul');
-		$('dd').find('ul').slideUp();
-		if($ul.is(':visible')){
-			$(this).next('ul').slideUp();
-		}else{
-			$(this).next('ul').slideDown();
-		}
-	});
+    $.ajax({
+        url: '/pcs/auth/menulist',
+        type: 'post',
+        dataType: 'json',
+        data: {moduleid: $.request.getParameter("moduleid")},
+        success: function (dataJson) {
+            if(dataJson.statusCode == 0){
+                var menuHtml = "";
+                for(var i=0; i<dataJson.data.length; i++){
+                    var m = dataJson.data[i];
+                    if(m.up_menu_id == '-1'){
+                        menuHtml += '<dd><div class="title"><span><img src="images/leftico01.png" /></span>'+m.menu_name+'</div>';
+                        menuHtml += '<ul class="menuson">'
+                        for(var j=0; j<dataJson.data.length; j++){
+                            var subm = dataJson.data[j];
+                            if(subm.up_menu_id == m.mid){
+                                menuHtml += '<li><cite></cite><a href="'+subm.url+'" target="rightFrame">'+subm.menu_name+'</a><i></i></li>';
+                            }
+                        }
+                        menuHtml += '</ul></dd>'
+                    }
+                }
+                $(".leftmenu").append(menuHtml);
+
+                $(".menuson li").click(function(){
+                    $(".menuson li.active").removeClass("active")
+                    $(this).addClass("active");
+                });
+
+                $('.title').click(function(){
+                    var $ul = $(this).next('ul');
+                    $('dd').find('ul').slideUp();
+                    if($ul.is(':visible')){
+                        $(this).next('ul').slideUp();
+                    }else{
+                        $(this).next('ul').slideDown();
+                    }
+                });
+
+                $(".menuson").eq(0).find("li:first-child a").get(0).click();
+            }else if(dataJson.statusCode == 41){
+                window.parent.location.href = "login.html"
+            }
+        }
+    });
 })	
 </script>
 
@@ -32,6 +64,7 @@ $(function(){
 <body style="background:#f0f9fd;">
 	<div class="lefttop"><span></span>通讯录</div>
     <dl class="leftmenu">
+        <!--
         <dd>
             <div class="title">
                 <span><img src="images/leftico01.png" /></span>案件管理
@@ -58,6 +91,7 @@ $(function(){
                 <li><cite></cite><a href="userlist.html" target="rightFrame">用户管理</a><i></i></li>
             </ul>
         </dd>
+        -->
     </dl>
 </body>
 </html>

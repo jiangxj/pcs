@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://139.196.6.63:3306/pcs?serverTimezone=UTC
+    url: jdbc:mysql://139.196.170.116:3306/pcs?serverTimezone=UTC
     username: root
-    password: mengkefmp
+    password: fengjie
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   redis:
@@ -15,5 +15,5 @@ server:
   port: 9080
   context-path: /pcs
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
+  mapper-locations: classpath:mappers/*.xml
 
