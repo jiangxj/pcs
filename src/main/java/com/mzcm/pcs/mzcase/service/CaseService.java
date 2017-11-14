@@ -1,5 +1,6 @@
 package com.mzcm.pcs.mzcase.service;
 
+import com.mzcm.pcs.mzcase.dto.Mzcm_case_contact;
 import com.mzcm.pcs.mzcase.mapper.CaseMapper;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.poi.ss.usermodel.Cell;
@@ -70,6 +71,14 @@ public class CaseService {
     }
 
     public boolean updateStatus(String cid, String username) {
+        return false;
+    }
+
+    public boolean reallocate(String cid, String username, String touser) {
+        return false;
+    }
+
+    public boolean addContact(Mzcm_case_contact case_contact, String username) {
         return false;
     }
 }

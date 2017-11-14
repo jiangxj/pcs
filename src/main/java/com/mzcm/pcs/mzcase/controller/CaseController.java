@@ -2,6 +2,7 @@ package com.mzcm.pcs.mzcase.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.mzcm.pcs.commons.Constants;
+import com.mzcm.pcs.mzcase.dto.Mzcm_case_contact;
 import com.mzcm.pcs.mzcase.service.CaseService;
 import com.mzcm.pcs.user.dto.Mzcm_user;
 import org.apache.commons.lang3.StringUtils;
@@ -111,6 +112,42 @@ public class CaseController {
             HttpSession session = request.getSession();
             Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
             boolean flag = caseService.updateStatus(cid, user.getUsername());
+            jsonResult.put("data", flag);
+            jsonResult.put("statusCode", 0);
+            jsonResult.put("statusMessage", "ok");
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.put("statusCode", 1);
+            jsonResult.put("statusMessage", "error");
+        }
+        return jsonResult.toJSONString();
+    }
+
+    @RequestMapping("/reallocate")
+    public String reallocate(HttpServletRequest request, String cid, String touser){
+        JSONObject jsonResult = new JSONObject();
+        try{
+            HttpSession session = request.getSession();
+            Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
+            boolean flag = caseService.reallocate(cid, user.getUsername(), touser);
+            jsonResult.put("data", flag);
+            jsonResult.put("statusCode", 0);
+            jsonResult.put("statusMessage", "ok");
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.put("statusCode", 1);
+            jsonResult.put("statusMessage", "error");
+        }
+        return jsonResult.toJSONString();
+    }
+
+    @RequestMapping("/addcontact")
+    public String addContact(HttpServletRequest request, Mzcm_case_contact case_contact){
+        JSONObject jsonResult = new JSONObject();
+        try{
+            HttpSession session = request.getSession();
+            Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
+            boolean flag = caseService.addContact(case_contact, user.getUsername());
             jsonResult.put("data", flag);
             jsonResult.put("statusCode", 0);
             jsonResult.put("statusMessage", "ok");
