@@ -13,7 +13,7 @@ public class DefaultView extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers( ViewControllerRegistry registry ) {
         registry.addViewController( "/" ).setViewName( "forward:/pcs/login.html" );
-        registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE );
         super.addViewControllers( registry );
     }
 }

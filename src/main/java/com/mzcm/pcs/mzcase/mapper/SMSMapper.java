@@ -6,12 +6,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by xiaoi-010 on 2017/11/13.
+ * Created by xiaoi-010 on 2017/11/14.
  */
 @Mapper
 @Repository
-public interface CaseMapper {
-    List getCaseListByUsername(String username);
+public interface SMSMapper {
+    int getSMSCountForUnread(String username);
 
-    List getCaseFileListByUsername();
+    List getSMSListByCreator(String username);
 }

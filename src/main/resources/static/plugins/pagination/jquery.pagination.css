@@ -25,7 +25,7 @@ ul {
 .m-pagination-group > input,
 .m-pagination-group > button,
 .m-pagination-info {
-    font-size: 16px;
+    font-size: 9pt;
     font-family: 'Microsoft YaHei';
     color: #888;
 }
@@ -85,8 +85,8 @@ ul {
 
 .m-pagination-page > li.active > a {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #3b95c8;
+    border-color: #3b95c8;
 }
 
 .m-pagination-page > li:first-child > a {
@@ -109,6 +109,8 @@ ul {
     height: 36px;
     padding: 0px 8px;
     border-radius: 4px;
+    display: block !important;
+    opacity: 1 !important;
 }
 
 

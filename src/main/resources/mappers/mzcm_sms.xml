@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzcm.pcs.mzcase.mapper.SMSMapper">
+    <select id="getSMSCountForUnread" parameterType="java.lang.String" resultType="int">
+        select count(*) from mzcm_sms where status = '0' and touser = #{_parameter}
+    </select>
+
+    <select id="getSMSListByCreator" parameterType="java.lang.String" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_sms">
+        select * from mzcm_sms where touser = #{_parameter} order by status
+    </select>
+</mapper>

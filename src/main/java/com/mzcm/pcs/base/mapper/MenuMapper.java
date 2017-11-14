@@ -1,6 +1,6 @@
-package com.mzcm.pcs.menu.mapper;
+package com.mzcm.pcs.base.mapper;
 
-import com.mzcm.pcs.menu.dto.Mzcm_menu;
+import com.mzcm.pcs.base.dto.Mzcm_menu;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

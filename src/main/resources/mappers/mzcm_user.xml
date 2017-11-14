@@ -2,6 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mzcm.pcs.user.mapper.UserMapper">
     <select id="getUserByUsername" parameterType="java.lang.String" resultType="com.mzcm.pcs.user.dto.Mzcm_user">
-        select * from mzcm_user where username = #{_parameter}
+        select * from mzcm_user where status = '1' and username = #{_parameter}
     </select>
 </mapper>

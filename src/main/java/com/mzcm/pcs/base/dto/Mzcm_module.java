@@ -1,4 +1,4 @@
-package com.mzcm.pcs.menu.dto;
+package com.mzcm.pcs.base.dto;
 
 /**
  * Created by xiaoi-010 on 2017/11/13.
@@ -9,6 +9,8 @@ public class Mzcm_module {
     private String iconurl;
     private String seq;
     private String status;
+    private String url;
+    private String isdefault;
 
     public String getMid() {
         return mid;
@@ -48,5 +50,21 @@ public class Mzcm_module {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getIsdefault() {
+        return isdefault;
+    }
+
+    public void setIsdefault(String isdefault) {
+        this.isdefault = isdefault;
     }
 }

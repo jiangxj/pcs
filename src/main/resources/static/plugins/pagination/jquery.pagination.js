@@ -194,7 +194,8 @@
             this.currentPageIndex = pageIndex;
             var pages = renderPages(this.currentPageIndex, this.currentPageSize, this.total, this.options.pageBtnCount,
                 this.options.firstBtnText, this.options.lastBtnText, this.options.prevBtnText, this.options.nextBtnText, this.options.showFirstLastBtn);
-            this.$page.empty().append(pages);
+            this.$page.empty();
+            appendChildArray(this.$page, pages);
             this.$info.text(renderInfo(this.currentPageIndex, this.currentPageSize, this.total, this.options.infoFormat));
             if (this.pageCount > 1) {
                 this.$page.show();
@@ -292,6 +293,12 @@
             }
         }
         return html;
+    }
+    var appendChildArray = function (parent, jqArray) {
+        var html = "";
+        for(var i=0; i<jqArray.length; i++){
+            parent.append(jqArray[i]);
+        }
     }
     var renderPage = function (beginPageNum, count, currentPage) {
         var html = [];

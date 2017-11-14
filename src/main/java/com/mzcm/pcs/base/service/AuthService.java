@@ -1,8 +1,8 @@
-package com.mzcm.pcs.auth.service;
+package com.mzcm.pcs.base.service;
 
-import com.mzcm.pcs.menu.dto.Mzcm_menu;
+import com.mzcm.pcs.base.dto.Mzcm_menu;
 import com.mzcm.pcs.user.dto.Mzcm_user;
-import com.mzcm.pcs.menu.mapper.MenuMapper;
+import com.mzcm.pcs.base.mapper.MenuMapper;
 import com.mzcm.pcs.user.mapper.UserMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

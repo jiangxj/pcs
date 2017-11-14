@@ -21,6 +21,30 @@
         $(".select3").uedSelect({
             width : 160
         });
+        
+        $("#import").click(function () {
+            $.ajax({
+                url: '/pcs/case/import',
+                type: 'post',
+                dataType: 'json',
+                data: {cids: ''},
+                success: function (dataJson) {
+
+                }
+            });
+        });
+
+        $(".tablelist thead th:first-child input:checkbox").click(function () {
+            if($(this).is(':checked')){
+                $('.tablelist tbody td:first-child input:checkbox').each(function() {
+                    $(this).attr('checked', true);
+                });
+            }else{
+                $('.tablelist tbody td:first-child input:checkbox').each(function () {
+                    $(this).attr('checked',false);
+                });
+            }
+        });
     });
 </script>
 
@@ -41,8 +65,7 @@
     <div class="formbody">
         <div class="tools">
             <ul class="toolbar">
-                <li class="hk"><span><img src="images/t01.png" /></span>导入</li>
-                <li><span><img src="images/t04.png" /></span>导出</li>
+                <li id="import"><span><img src="images/t01.png" /></span>导入</li>
             </ul>
         </div>
         <ul class="seachform clearfix">
@@ -75,7 +98,7 @@
     <table class="tablelist">
     	<thead>
             <tr>
-                <th width="3%"><input name="" type="checkbox" value="" checked="checked"/></th>
+                <th width="3%"><input name="" type="checkbox"/></th>
                 <th width="3%">序号<i class="sort"><img src="images/px.gif" /></i></th>
                 <th width="8%">批次号</th>
                 <th>委托单位</th>
@@ -166,13 +189,12 @@
             </tr>
         </tbody>
     </table>
-
-        <div id="page3" class="m-pagination"></div>
+        <div id="page" class="m-pagination"></div>
     </div>
 
 </body>
 <script type="text/javascript">
-    $("#page3").page({
+    $("#page").page({
         total: 1000,
         firstBtnText: '首页',
         lastBtnText: '尾页',
@@ -182,6 +204,7 @@
         showJump: true,
         jumpBtnText: '跳转',
         showPageSizes: true,
+        pageSizeItems:[10, 20, 50, 100, 150, 300, 500, 1000, 1500],
         infoFormat: '{start} ~ {end}条，共{total}条'
     });
 </script>

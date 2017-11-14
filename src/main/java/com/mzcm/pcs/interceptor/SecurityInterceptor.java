@@ -19,10 +19,16 @@ public class SecurityInterceptor implements HandlerInterceptor{
         if(session.getAttribute(Constants.MZCM_USER) != null || httpServletRequest.getRequestURI().endsWith("login")){
             return true;
         }
-        JSONObject jsonResult = new JSONObject();
-        jsonResult.put("statusCode", 41);
-        jsonResult.put("statusMessage", "error");
-        httpServletResponse.getWriter().write(jsonResult.toJSONString());
+        String header = httpServletRequest.getHeader("X-Requested-With");
+        if(null != header && header.equals("XMLHttpRequest")){
+            JSONObject jsonResult = new JSONObject();
+            jsonResult.put("statusCode", 41);
+            jsonResult.put("statusMessage", "error");
+            httpServletResponse.getWriter().write(jsonResult.toJSONString());
+        }else{
+            httpServletResponse.sendRedirect("/pcs/login.html");
+        }
+
         return false;
     }
 

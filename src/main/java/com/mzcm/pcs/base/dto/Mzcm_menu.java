@@ -1,4 +1,4 @@
-package com.mzcm.pcs.menu.dto;
+package com.mzcm.pcs.base.dto;
 
 /**
  * Created by xiaoi-010 on 2017/11/13.
