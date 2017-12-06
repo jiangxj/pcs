@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mzcm.pcs.base.mapper.MenuMapper">
-    <select id="getMenuListByUsername" parameterType="java.lang.String" resultType="com.mzcm.pcs.base.dto.Mzcm_menu">
+<mapper namespace="com.mzcm.pcs.platform.mapper.MenuMapper">
+    <select id="getMenuListByUsername" parameterType="java.lang.String" resultType="com.mzcm.pcs.platform.dto.Mzcm_menu">
         select t1.* from mzcm_menu t1,mzcm_user t2,mzcm_auth t3 where t1.mid = t3.menuid and t2.roleid = t3.roleid and t2.username = #{_parameter} and t1.status = '1' and t2.status = '1' order by t1.seq
     </select>
-    <select id="getMenuListByUpMenuIds" parameterType="java.util.List" resultType="com.mzcm.pcs.base.dto.Mzcm_menu">
+    <select id="getMenuListByUpMenuIds" parameterType="java.util.List" resultType="com.mzcm.pcs.platform.dto.Mzcm_menu">
         select t1.* from mzcm_menu t1 where t1.status = '1' and t1.mid
         <foreach collection="list" item="id" open="in (" close=")" separator=",">
             #{id}
@@ -12,7 +12,7 @@
         order by t1.seq
     </select>
 
-    <select id="getModuleListByMids" parameterType="java.util.List" resultType="com.mzcm.pcs.base.dto.Mzcm_module">
+    <select id="getModuleListByMids" parameterType="java.util.List" resultType="com.mzcm.pcs.platform.dto.Mzcm_module">
         select t1.* from mzcm_module t1 where t1.status = '1' and t1.mid
         <foreach collection="list" item="id" open="in (" close=")" separator=",">
             #{id}
@@ -20,7 +20,7 @@
         or isdefault = '1'
         order by t1.seq
     </select>
-    <select id="getMenuListByUsernameAndModuleId" parameterType="com.mzcm.pcs.base.dto.Mzcm_menu" resultType="com.mzcm.pcs.base.dto.Mzcm_menu">
+    <select id="getMenuListByUsernameAndModuleId" parameterType="com.mzcm.pcs.platform.dto.Mzcm_menu" resultType="com.mzcm.pcs.platform.dto.Mzcm_menu">
         select t1.* from mzcm_menu t1,mzcm_user t2,mzcm_auth t3 where t1.mid = t3.menuid and t2.roleid = t3.roleid and t2.username = #{username} and t1.module_id = #{module_id} and t1.status = '1' and t2.status = '1' order by t1.seq
     </select>
 </mapper>

@@ -1,4 +1,4 @@
-package com.mzcm.pcs.base.dto;
+package com.mzcm.pcs.platform.dto;
 
 /**
  * Created by xiaoi-010 on 2017/11/13.

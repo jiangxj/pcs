@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzcm.pcs.mzcase.mapper.CaseRecordMapper">
+    <select id="getCaseRecordList" parameterType="java.lang.String" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case_record">
+        select t1.*, t2.unit, t2.realname, t2.id_card_no, t2.operator from mzcm_case_record t1, mzcm_case t2 where t1.case_id = t2.case_id
+    </select>
+</mapper>

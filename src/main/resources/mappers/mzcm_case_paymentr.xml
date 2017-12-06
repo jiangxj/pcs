@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzcm.pcs.mzcase.mapper.CasePaymentMapper">
+    <select id="getCasePaymentListByUsername" parameterType="java.lang.String" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case_payment">
+        select t1.* from mzcm_case_payment t1, mzcm_case t2, mzcm_user t3 where t1.creator = t3.username and t1.case_id = t2.case_id and t1.creator = #{_parameter}
+    </select>
+</mapper>

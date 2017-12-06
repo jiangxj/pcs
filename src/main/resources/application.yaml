@@ -11,6 +11,9 @@ spring:
     password: fengjiefengjie
     port: 6379
     database: 0
+  data:
+    mongodb:
+      uri: mongodb://dev:test2017@139.196.170.116:27017/pcs
 
 custom:
   datasource:
@@ -22,7 +25,7 @@ custom:
       driver-class-name: net.sourceforge.jtds.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
 server:
-  port: 9080
+  port: 9081
   context-path: /pcs
 mybatis:
   mapper-locations: classpath:mappers/*.xml

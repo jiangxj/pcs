@@ -10,14 +10,6 @@ import java.util.List;
  */
 @Mapper
 @Repository
-public interface CaseMapper {
-    List getCaseListByUsername(String username);
-
-    List getCaseFileListByUsername();
-
-    List getCaseList();
-
-    List getCaseFileList();
-
-    List getCaseFileListByGroupId(String groupid);
+public interface BatchCaseMapper {
+    List getBatchCaseList();
 }

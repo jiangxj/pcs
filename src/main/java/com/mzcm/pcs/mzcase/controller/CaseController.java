@@ -1,6 +1,7 @@
 package com.mzcm.pcs.mzcase.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.Page;
 import com.mzcm.pcs.commons.Constants;
 import com.mzcm.pcs.mzcase.dto.Mzcm_case_contact;
 import com.mzcm.pcs.mzcase.service.CaseService;
@@ -27,14 +28,81 @@ public class CaseController {
     @Autowired
     CaseService caseService;
 
-    @RequestMapping("/list")
-    public String list(HttpServletRequest request){
+    @RequestMapping("/listAll")
+    public String listAll(HttpServletRequest request, String pageIndex, String pageSize){
         JSONObject jsonResult = new JSONObject();
         try{
+            int intPageIndex = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageIndex, "1"));
+            int intPageSize = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageSize, "10"));
             HttpSession session = request.getSession();
             Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
-            List list = caseService.getCaseListByUsername(user.getUsername());
-            jsonResult.put("data", list);
+            Page pageObj = caseService.getCaseList(intPageIndex, intPageSize);
+            jsonResult.put("data", pageObj.getResult());
+            jsonResult.put("total", pageObj.getTotal());
+            jsonResult.put("statusCode", 0);
+            jsonResult.put("statusMessage", "ok");
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.put("statusCode", 1);
+            jsonResult.put("statusMessage", "error");
+        }
+        return jsonResult.toJSONString();
+    }
+
+    @RequestMapping("/deptlist")
+    public String deptlist(HttpServletRequest request, String pageIndex, String pageSize){
+        JSONObject jsonResult = new JSONObject();
+        try{
+            int intPageIndex = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageIndex, "1"));
+            int intPageSize = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageSize, "10"));
+            HttpSession session = request.getSession();
+            Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
+            Page pageObj = caseService.getCaseList(user.getGroupid(), intPageIndex, intPageSize);
+            jsonResult.put("data", pageObj.getResult());
+            jsonResult.put("total", pageObj.getTotal());
+            jsonResult.put("statusCode", 0);
+            jsonResult.put("statusMessage", "ok");
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.put("statusCode", 1);
+            jsonResult.put("statusMessage", "error");
+        }
+        return jsonResult.toJSONString();
+    }
+
+    @RequestMapping("/list")
+    public String list(HttpServletRequest request, String pageIndex, String pageSize){
+        JSONObject jsonResult = new JSONObject();
+        try{
+            int intPageIndex = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageIndex, "1"));
+            int intPageSize = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageSize, "10"));
+            HttpSession session = request.getSession();
+            Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
+            Page pageObj = caseService.getCaseListByUsername(user.getUsername(), intPageIndex, intPageSize);
+            jsonResult.put("data", pageObj.getResult());
+            jsonResult.put("total", pageObj.getTotal());
+            jsonResult.put("statusCode", 0);
+            jsonResult.put("statusMessage", "ok");
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonResult.put("statusCode", 1);
+            jsonResult.put("statusMessage", "error");
+        }
+        return jsonResult.toJSONString();
+    }
+
+
+    @RequestMapping("/listfile")
+    public String listfile(HttpServletRequest request, String pageIndex, String pageSize){
+        JSONObject jsonResult = new JSONObject();
+        try{
+            int intPageIndex = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageIndex, "1"));
+            int intPageSize = Integer.parseInt(com.mzcm.pcs.commons.utils.StringUtils.blank2Default(pageSize, "10"));
+            HttpSession session = request.getSession();
+            Mzcm_user user = (Mzcm_user)session.getAttribute(Constants.MZCM_USER);
+            Page pageObj = caseService.getCaseFileList(intPageIndex, intPageSize);
+            jsonResult.put("data", pageObj.getResult());
+            jsonResult.put("total", pageObj.getTotal());
             jsonResult.put("statusCode", 0);
             jsonResult.put("statusMessage", "ok");
         }catch (Exception e){

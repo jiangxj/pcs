@@ -1,9 +1,9 @@
-package com.mzcm.pcs.base.controller;
+package com.mzcm.pcs.platform.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.mzcm.pcs.base.dto.Mzcm_menu;
+import com.mzcm.pcs.platform.dto.Mzcm_menu;
 import com.mzcm.pcs.user.dto.Mzcm_user;
-import com.mzcm.pcs.base.service.AuthService;
+import com.mzcm.pcs.platform.service.AuthService;
 import com.mzcm.pcs.commons.Constants;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

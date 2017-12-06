@@ -22,10 +22,6 @@
             width : 160
         });
 
-        $(".tablelist tbody tr").click(function(){
-            window.location.href = "casedetail.html";
-        });
-
         $(".tablelist thead th:first-child input:checkbox").click(function () {
             if($(this).is(':checked')){
                 $('.tablelist tbody td:first-child input:checkbox').each(function() {
@@ -55,44 +51,16 @@
         </ul>
     </div>
     <div class="formbody">
-        <ul class="seachform">
-
+        <div class="tools">
+            <ul class="toolbar">
+                <li class="hk"><span><img src="images/t01.png" /></span>分派</li>
+            </ul>
+        </div>
+        <ul class="seachform clearfix">
             <li><label>经办人</label><input name="" type="text" class="scinput" /></li>
-            <li><label>欠款人</label><input name="" type="text" class="scinput" /></li>
-            <li><label>录入日期</label><input name="" type="text" class="scinput" /> - <input name="" type="text" class="scinput" /></li>
-            <li>
-                <label>委托单位：</label>
-                <div class="vocation">
-                    <select class="select1">
-                        <option>请选择</option>
-                        <option>速分期</option>
-                        <option>掌众金融（闪电贷）</option>
-                        <option>现金速递</option>
-                        <option>优分期</option>
-                        <option>简单借款</option>
-                        <option>信用宝</option>
-                        <option>力帆租赁</option>
-                        <option>现金巴士</option>
-                    </select>
-                </div>
-            </li>
-
-            <li><label>状态&nbsp;&nbsp;&nbsp;</label>
-                <div class="vocation">
-                    <select class="select3">
-                        <option>请选择</option>
-                        <option>查找</option>
-                        <option>中本人</option>
-                        <option>中家人</option>
-                        <option>中联系人</option>
-                        <option>跟进</option>
-                        <option>默认状态</option>
-                        <option>争议</option>
-                        <option>承诺</option>
-                        <option>跳票</option>
-                    </select>
-                </div>
-            </li>
+            <li><label>委托单位</label><input name="" type="text" class="scinput" /></li>
+            <li><label>欠款金额</label><input name="" type="text" class="scinput" /> 至 <input name="" type="text" class="scinput" /></li>
+            <li><label>到期时间</label><input name="" type="text" class="scinput" />天以内</li>
             <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查找"/></li>
         </ul>
     </div>
@@ -107,31 +75,18 @@
                 <th>委托单位</th>
                 <th>姓名</th>
                 <th>身份证号</th>
-                <th>卡号</th>
-                <th>借款日期</th>
-                <th>应还款日期</th>
-                <th>逾期天数</th>
-                <th>原始本金</th>
-                <th>本金</th>
-                <th>滞纳金</th>
-                <th>应还金额</th>
-                <th>已还金额</th>
-                <th>未还金额</th>
-                <th>还款状态</th>
-                <th>经办人</th>
-                <th>委托日期</th>
-                <th>剩余（天）</th>
-                <th>当前状态</th>
-                <th>最后催收时间</th>
+                <th>催收人</th>
+                <th>催收方式</th>
+                <th>催收时间</th>
             </tr>
         </thead>
         <tbody>
+
         </tbody>
     </table>
 
-
         <div id="page" class="m-pagination"></div>
-    
+
     </div>
     <script type="text/javascript">
         $("#page").page({
@@ -147,12 +102,12 @@
             pageSizeItems:[10, 20, 50, 100, 150, 300, 500, 1000, 1500],
             infoFormat: '{start} ~ {end}条，共{total}条',
             remote:{
-                url: '/pcs/case/list',
+                url: '/pcs/record/list',
                 success: function(ret, page){
                     if(ret.statusCode == 0){
                         var htmlStr = "";
                         for(var i=0; i<ret.data.length; i++){
-                            htmlStr += '<tr><td><input name="" type="checkbox" value="" /></td><td>'+(i+1)+'</td><td>'+ret.data[i].case_id+'</td><td>'+ret.data[i].unit+'</td><td>'+ret.data[i].realname+'</td><td>'+ret.data[i].id_card_no+'</td><td>'+ret.data[i].bank_card_no+'</td><td>'+ret.data[i].borrow_date+'</td><td>'+ret.data[i].repayment_date+'</td><td>'+ret.data[i].overdue_days+'</td><td>'+ret.data[i].orign_principal+'</td><td>'+ret.data[i].principal+'</td><td>'+ret.data[i].late_fee+'</td><td>'+ret.data[i].yhje+'</td><td>'+ret.data[i].yihje+'</td><td>'+ret.data[i].whje+'</td><td>'+ret.data[i].repayment_status+'</td><td>'+ret.data[i].operator+'</td><td>'+ret.data[i].casedate+'</td><td>30</td><td>'+ret.data[i].status+'</td><td>'+ret.data[i].lastestdate+'</td></tr>';
+                            htmlStr += '<tr><td><input name="" type="checkbox" value="" /></td><td>'+(i+1)+'</td><td>'+ret.data[i].case_id+'</td><td>'+ret.data[i].unit+'</td><td>'+ret.data[i].realname+'</td><td>'+ret.data[i].id_card_no+'</td><td>'+ret.data[i].operator+'</td><td>'+ret.data[i].type+'</td><td>'+ret.data[i].createdate+'</td></tr>';
                         }
                         $(".tablelist tbody").html(htmlStr);
                     }

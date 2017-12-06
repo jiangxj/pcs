@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mzcm.pcs.mzcase.mapper.CaseMapper">
+    <select id="getCaseListByUsername" parameterType="java.lang.String" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case">
+        select t1.* from mzcm_case t1, mzcm_user t2 where t1.operator = t2.username and t1.status = '0' and t1.operator = #{_parameter}
+    </select>
+    <select id="getCaseList" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case">
+        select * from mzcm_case where file_status = '0'
+    </select>
+
+    <select id="getCaseFileList" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case">
+        select * from mzcm_case where file_status = '1'
+    </select>
+
+    <select id="getCaseFileListByGroupId" parameterType="java.lang.String" resultType="com.mzcm.pcs.mzcase.dto.Mzcm_case">
+        select * from mzcm_case t1, mzcm_user t2 where t1.operator = t2.username and t2.groupid = #{_parameter} and t1.file_status = '1'
+    </select>
+</mapper>

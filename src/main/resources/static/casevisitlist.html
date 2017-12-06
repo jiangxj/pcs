@@ -71,26 +71,11 @@
             <tr>
                 <th><input type="checkbox"/></th>
                 <th>序号<i class="sort"><img src="images/px.gif" /></i></th>
+                <th>标题</th>
                 <th>案件编号</th>
-                <th>委托单位</th>
-                <th>姓名</th>
-                <th>身份证号</th>
-                <th>卡号</th>
-                <th>借款日期</th>
-                <th>应还款日期</th>
-                <th>逾期天数</th>
-                <th>原始本金</th>
-                <th>本金</th>
-                <th>滞纳金</th>
-                <th>应还金额</th>
-                <th>已还金额</th>
-                <th>未还金额</th>
-                <th>还款状态</th>
-                <th>经办人</th>
-                <th>委托日期</th>
-                <th>剩余（天）</th>
-                <th>当前状态</th>
-                <th>最后催收时间</th>
+                <th>申请人</th>
+                <th>申请时间</th>
+                <th>审核状态</th>
             </tr>
         </thead>
         <tbody>
@@ -115,12 +100,12 @@
             pageSizeItems:[10, 20, 50, 100, 150, 300, 500, 1000, 1500],
             infoFormat: '{start} ~ {end}条，共{total}条',
             remote:{
-                url: '/pcs/case/listAll',
+                url: '/pcs/visit/list',
                 success: function(ret, page){
                     if(ret.statusCode == 0){
                         var htmlStr = "";
                         for(var i=0; i<ret.data.length; i++){
-                            htmlStr += '<tr><td><input name="" type="checkbox" value="" /></td><td>'+(i+1)+'</td><td>'+ret.data[i].case_id+'</td><td>'+ret.data[i].unit+'</td><td>'+ret.data[i].realname+'</td><td>'+ret.data[i].id_card_no+'</td><td>'+ret.data[i].bank_card_no+'</td><td>'+ret.data[i].borrow_date+'</td><td>'+ret.data[i].repayment_date+'</td><td>'+ret.data[i].overdue_days+'</td><td>'+ret.data[i].orign_principal+'</td><td>'+ret.data[i].principal+'</td><td>'+ret.data[i].late_fee+'</td><td>'+ret.data[i].yhje+'</td><td>'+ret.data[i].yihje+'</td><td>'+ret.data[i].whje+'</td><td>'+ret.data[i].repayment_status+'</td><td>'+ret.data[i].operator+'</td><td>'+ret.data[i].casedate+'</td><td>30</td><td>'+ret.data[i].status+'</td><td>'+ret.data[i].lastestdate+'</td></tr>';
+                            htmlStr += '<tr><td><input name="" type="checkbox" value="" /></td><td>'+(i+1)+'</td><td>'+ret.data[i].title+'</td><td>'+ret.data[i].case_id+'</td><td>'+ret.data[i].creator+'</td><td>'+ret.data[i].createdate+'</td><td>'+ret.data[i].status+'</td></tr>';
                         }
                         $(".tablelist tbody").html(htmlStr);
                     }

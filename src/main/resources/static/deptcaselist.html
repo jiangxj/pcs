@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link href="css/select.css" rel="stylesheet" type="text/css" />
 <link href="plugins/pagination/jquery.pagination.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.1.7.0.min.js"></script>
 <script type="text/javascript" src="js/select-ui.min.js"></script>
 <script type="text/javascript" src="plugins/pagination/jquery.pagination.js"></script>
 
@@ -23,7 +23,7 @@
         });
 
         $(".tablelist tbody tr").click(function(){
-            window.location.href = "casefiledetail.html";
+            window.location.href = "casedetail.html";
         });
 
         $(".tablelist thead th:first-child input:checkbox").click(function () {
@@ -126,10 +126,12 @@
             </tr>
         </thead>
         <tbody>
-
         </tbody>
     </table>
+
+
         <div id="page" class="m-pagination"></div>
+    
     </div>
     <script type="text/javascript">
         $("#page").page({
@@ -145,7 +147,7 @@
             pageSizeItems:[10, 20, 50, 100, 150, 300, 500, 1000, 1500],
             infoFormat: '{start} ~ {end}条，共{total}条',
             remote:{
-                url: '/pcs/case/listfile',
+                url: '/pcs/case/deptlist',
                 success: function(ret, page){
                     if(ret.statusCode == 0){
                         var htmlStr = "";

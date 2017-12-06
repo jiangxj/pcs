@@ -1,8 +1,10 @@
 package com.mzcm.pcs.mzcase.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.mzcm.pcs.mzcase.dto.Mzcm_case;
 import com.mzcm.pcs.mzcase.dto.Mzcm_case_contact;
 import com.mzcm.pcs.mzcase.mapper.CaseMapper;
-import org.apache.commons.collections.map.HashedMap;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,8 +26,10 @@ public class CaseService {
     @Autowired
     CaseMapper caseMapper;
 
-    public List getCaseListByUsername(String username){
-        return caseMapper.getCaseListByUsername(username);
+    public Page getCaseListByUsername(String username, int intPageIndex, int intPageSize){
+        Page<Mzcm_case> pageObj = PageHelper.startPage(intPageIndex+1, intPageSize, true);
+        caseMapper.getCaseListByUsername(username);
+        return pageObj;
     }
 
     public boolean importCase(Workbook wookbook, String username) {
@@ -33,7 +38,7 @@ public class CaseService {
         int totalRowNum = sheet.getLastRowNum();
         for(int i = 1; i <= totalRowNum; i++){
             Row row = sheet.getRow(i);
-            Map<String, String> rowMap = new HashedMap();
+            Map<String, String> rowMap = new HashMap<String, String>();
 
             Cell cell0 = row.getCell(0);
             rowMap.put("0", getCellValue(cell0));
@@ -80,5 +85,23 @@ public class CaseService {
 
     public boolean addContact(Mzcm_case_contact case_contact, String username) {
         return false;
+    }
+
+    public Page getCaseList(int intPageIndex, int intPageSize) {
+        Page<Mzcm_case> pageObj = PageHelper.startPage(intPageIndex+1, intPageSize, true);
+        caseMapper.getCaseList();
+        return pageObj;
+    }
+
+    public Page getCaseFileList(int intPageIndex, int intPageSize) {
+        Page<Mzcm_case> pageObj = PageHelper.startPage(intPageIndex+1, intPageSize, true);
+        caseMapper.getCaseFileList();
+        return pageObj;
+    }
+
+    public Page getCaseList(String groupid, int intPageIndex, int intPageSize) {
+        Page<Mzcm_case> pageObj = PageHelper.startPage(intPageIndex+1, intPageSize, true);
+        caseMapper.getCaseFileListByGroupId(groupid);
+        return pageObj;
     }
 }
